@@ -1,1 +1,7 @@
-<p>users works!</p>
+<ul class="users">
+  <li *ngFor="let user of users">
+    <a>
+      <span class="badge">{{ user.id }}</span> {{ user.firstName }}
+    </a>
+  </li>
+</ul>
