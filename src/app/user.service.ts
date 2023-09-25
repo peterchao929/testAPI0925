@@ -28,6 +28,7 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
+  // 測試完畢 CORS policy問題已從Chrome套件-Allow CORS解決
   // 取得使用者清單
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl).pipe(
