@@ -1,8 +1,8 @@
 export interface User {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   gender: number;
   age: number;
-  registerTime: string;
+  registerDate: string;
 }

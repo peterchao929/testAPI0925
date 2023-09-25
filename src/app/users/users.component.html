@@ -1,8 +1,23 @@
 <h2>User清單</h2>
+
 <ul class="users">
-  <li *ngFor="let user of users">
+  <li *ngFor="let user of users; let i = index">
     <a>
-      <span class="badge">{{ user.id }}</span> {{ user.firstName }}
+      <span class="badge">{{ i+1 }}</span> {{ user.lastname }} {{ user.firstname }}
     </a>
+    <button>X</button>
   </li>
 </ul>
+
+<div>
+  <label>請輸入名稱：</label>
+  <input>
+  <label>請輸入姓：</label>
+  <input>
+  <label>請輸入性別：</label>
+  <input>
+  <label>請輸入年齡：</label>
+  <input>
+
+  <button>新增</button>
+</div>
