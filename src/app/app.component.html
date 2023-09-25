@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <nav>
-  <a routerLink="">首頁</a>
-  <a routerLink="">使用者清單</a>
+  <a routerLink="/users">使用者清單</a>&nbsp;&nbsp;
+  <a routerLink="/addUser">新增使用者</a>
 </nav>
-<app-users></app-users>
+<router-outlet></router-outlet>
 <app-messages></app-messages>
