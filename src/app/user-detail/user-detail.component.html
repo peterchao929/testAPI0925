@@ -1,15 +1,44 @@
 <div *ngIf="user">
-  <h2>{{ user.lastname}} {{ user.firstname}} 詳情 ( id為{{ user.id }} )</h2>
-  <div>
-    <label for="user-lastname">使用者的姓: </label>
-    <input id="user-lastname" [(ngModel)]="user.lastname" placeholder="lastname" /><br>
-    <label for="user-firstname">使用者的名字: </label>
-    <input id="user-firstname" [(ngModel)]="user.firstname" placeholder="firstname" /><br>
-    <label for="user-gender">使用者的性別: </label>
-    <input id="user-gender" [(ngModel)]="user.gender" placeholder="gender" /><br>
-    <label for="user-age">使用者的年齡: </label>
-    <input id="user-age" [(ngModel)]="user.age" placeholder="age" />
+  <h2>{{ user.lastname }} {{ user.firstname }} 詳情 ( id為{{ user.id }} )</h2>
+  <div class="form-area">
+    <form #userForm="ngForm" (ngSubmit)="save(user.id, userForm.value)">
+      <label for="user-lastname">使用者的姓: </label>
+      <input
+        id="user-lastname"
+        [(ngModel)]="user.lastname"
+        name="lastname"
+        placeholder="姓"
+        value="{{ user.lastname }}"
+      /><br />
+      <label for="user-firstname">使用者的名字: </label>
+      <input
+        id="user-firstname"
+        [(ngModel)]="user.firstname"
+        name="firstname"
+        placeholder="名字"
+        value="{{ user.firstname }}"
+      />
+      <br />
+      <label for="user-gender">使用者的性別: </label>
+      <input
+        id="user-gender"
+        [(ngModel)]="user.gender"
+        name="gender"
+        placeholder="性別"
+        value="{{ user.gender }}"
+      /><br />
+      <label for="user-age">使用者的年齡: </label>
+      <input
+        id="user-age"
+        [(ngModel)]="user.age"
+        name="age"
+        placeholder="年齡"
+        value= '{{ user.age }}'
+      />
+      <br />
+
+      <button type="submit">更新</button>
+      <button type="button" (click)="goBack()">返回</button>
+    </form>
   </div>
-  <button>存檔(未加)</button>
-  <button type="button" (click)="goBack()">返回</button>
 </div>

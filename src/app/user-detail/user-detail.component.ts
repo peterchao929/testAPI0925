@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -14,6 +15,7 @@ import { UserService } from '../user.service';
 
 export class UserDetailComponent {
   user: User | undefined;
+  @ViewChild('userForm') form: NgForm | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +33,13 @@ export class UserDetailComponent {
   getUser(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.userService.getUser(id).subscribe(user => this.user = user);
+  }
+
+  // 呼叫Service 將變動的內容存進資料庫
+  save(id: number, user: User): void {
+    if (this.user){
+      this.userService.updateUser(id, user).subscribe(()=>this.goBack);
+    }
   }
 
   // 返回上一頁

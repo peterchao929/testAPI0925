@@ -29,7 +29,7 @@ export class UserService {
   };
 
   // 測試完畢 CORS policy問題已從Chrome套件-Allow CORS解決
-  // 取得使用者清單
+  // 取得使用者清單 GET
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl).pipe(
       tap((_) => this.log('使用者獲取中')),
@@ -37,12 +37,21 @@ export class UserService {
     );
   }
 
-  // 取得單一使用者
+  // 取得單一使用者 Get/ID
   getUser(id: number): Observable<User> {
     const url = `${this.userUrl}/${id}`;
     return this.http.get<User>(url).pipe(
       tap((_) => this.log(`抓到的UserID為：${id}`)),
       catchError(this.handleError<User>(`getUser id=${id}`))
+    );
+  }
+
+  // 更新對應ID的User資料 PUT
+  updateUser(id: number, user: User): Observable<any> {
+    const url = `${this.userUrl}/${id}`;
+    return this.http.put(url, user, this.httpOptions).pipe(
+      tap((_) => this.log(`ID ${id} 資料已更新`)),
+      catchError(this.handleError<User>('updateUser'))
     );
   }
 
