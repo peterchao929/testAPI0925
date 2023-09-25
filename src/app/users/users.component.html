@@ -2,8 +2,8 @@
 
 <ul class="users">
   <li *ngFor="let user of users; let i = index">
-    <a>
-      <span class="badge">{{ i+1 }}</span> {{ user.lastname }} {{ user.firstname }}
+    <a routerLink="/userDetail/{{ user.id }}">
+      <span class="badge">{{ i+1 }}</span> {{ user.lastname}} {{ user.firstname }}
     </a>
     <button>X</button>
   </li>

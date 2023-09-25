@@ -37,6 +37,15 @@ export class UserService {
     );
   }
 
+  // 取得單一使用者
+  getUser(id: number): Observable<User> {
+    const url = `${this.userUrl}/${id}`;
+    return this.http.get<User>(url).pipe(
+      tap((_) => this.log(`抓到的UserID為：${id}`)),
+      catchError(this.handleError<User>(`getUser id=${id}`))
+    );
+  }
+
   // 對應錯誤發生時的處理函式
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

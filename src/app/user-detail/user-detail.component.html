@@ -1,0 +1,15 @@
+<div *ngIf="user">
+  <h2>{{ user.lastname}} {{ user.firstname}} 詳情 ( id為{{ user.id }} )</h2>
+  <div>
+    <label for="user-lastname">使用者的姓: </label>
+    <input id="user-lastname" [(ngModel)]="user.lastname" placeholder="lastname" /><br>
+    <label for="user-firstname">使用者的名字: </label>
+    <input id="user-firstname" [(ngModel)]="user.firstname" placeholder="firstname" /><br>
+    <label for="user-gender">使用者的性別: </label>
+    <input id="user-gender" [(ngModel)]="user.gender" placeholder="gender" /><br>
+    <label for="user-age">使用者的年齡: </label>
+    <input id="user-age" [(ngModel)]="user.age" placeholder="age" />
+  </div>
+  <button>存檔(未加)</button>
+  <button type="button" (click)="goBack()">返回</button>
+</div>
