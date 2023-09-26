@@ -36,9 +36,9 @@ export class UserDetailComponent {
   }
 
   // 呼叫Service 將變動的內容存進資料庫
-  save(id: number, user: User): void {
+  save(id: number): void {
     if (this.user){
-      this.userService.updateUser(id, user).subscribe(()=>this.goBack);
+      this.userService.updateUser(id, this.user).subscribe(() => this.goBack());
     }
   }
 

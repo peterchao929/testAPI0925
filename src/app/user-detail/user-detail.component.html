@@ -1,7 +1,7 @@
 <div *ngIf="user">
   <h2>{{ user.lastname }} {{ user.firstname }} 詳情 ( id為{{ user.id }} )</h2>
   <div class="form-area">
-    <form #userForm="ngForm" (ngSubmit)="save(user.id, userForm.value)">
+    <form #userForm="ngForm" (ngSubmit)="save(user.id)">
       <label for="user-lastname">使用者的姓: </label>
       <input
         id="user-lastname"
