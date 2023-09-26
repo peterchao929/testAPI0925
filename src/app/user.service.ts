@@ -56,6 +56,17 @@ export class UserService {
     );
   }
 
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl, user, this.httpOptions).pipe(
+      tap((newUser: User) =>
+        this.log(
+          `新增User ID=${newUser.id}，姓名=${newUser.lastname} ${newUser.firstname}`
+        )
+      ),
+      catchError(this.handleError<User>('addUser'))
+    );
+  }
+
   // 對應錯誤發生時的處理函式
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

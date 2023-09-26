@@ -1,13 +1,15 @@
 <h2>新增 User</h2>
-<div>
-  <label>請輸入名稱：</label>
-  <input>
-  <label>請輸入姓：</label>
-  <input>
-  <label>請輸入性別：</label>
-  <input>
-  <label>請輸入年齡：</label>
-  <input>
+<div class="form-area">
+  <form #userForm="ngForm" (ngSubmit)="add()">
+    <label for="user-lastname">請輸入姓：</label>
+    <input id="user-lastname" [(ngModel)]="user.lastname" name="lastname" placeholder="姓">
+    <label for="user-firstname">請輸入名稱：</label>
+    <input id="user-firstname" [(ngModel)]="user.firstname" name="firstname" placeholder="名稱">
+    <label for="user-gender">請輸入性別：</label>
+    <input id="user-gender" [(ngModel)]="user.gender" name="gender" placeholder="性別">
+    <label for="user-age">請輸入年齡：</label>
+    <input id="user-age" [(ngModel)]="user.age" name="age" placeholder="年齡">
 
-  <button>新增</button>
+    <button type="submit">新增</button>
+  </form>
 </div>
